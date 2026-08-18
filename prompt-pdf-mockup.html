@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prompt PDF Mock Up - Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient-start: #020617;
+      --bg-gradient-end: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.4);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-primary: #22d3ee;
+      --accent-hover: #67e8f9;
+      --accent-success: #10b981;
+      --accent-danger: #f43f5e;
+      --code-bg: rgba(0, 0, 0, 0.3);
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: fixed linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .prompt-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .step-label {
+      font-weight: 800;
+      font-size: 0.8rem;
+      background: var(--accent-primary);
+      color: #020617;
+      padding: 5px 16px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .clear-btn {
+      background: transparent;
+      border: 1px solid var(--accent-danger);
+      color: var(--accent-danger);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .clear-btn:hover {
+      background: var(--accent-danger);
+      color: white;
+    }
+
+    .field-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      color: var(--accent-primary);
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .dynamic-textarea {
+      width: 100%;
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      padding: 18px;
+      border-radius: 12px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      min-height: 80px;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .dynamic-textarea:focus {
+      border-color: var(--accent-primary);
+    }
+
+    .prompt-content {
+      background: var(--code-bg);
+      padding: 30px;
+      border-radius: 12px;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 25px;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      width: 100%;
+      text-decoration: none;
+      border: none;
+    }
+
+    .copy-btn {
+      background: rgba(34, 211, 238, 0.1);
+      color: var(--accent-primary);
+      border: 1px solid var(--accent-primary);
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-primary);
+      color: #020617;
+    }
+
+    .copy-btn.copied {
+      background: var(--accent-success);
+      border-color: var(--accent-success);
+      color: white;
+    }
+
+    .footer {
+      margin-top: 80px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 40px;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      .step-card { padding: 25px; }
+      .prompt-content { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Prompt PDF Mock Up</h1>
+    </header>
+
+    <div class="prompt-workflow">
+      
+      <!-- Input Card -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Customization</span>
+          <button class="clear-btn" onclick="clearAll()">Clear All</button>
+        </div>
+        
+        <div class="field-group">
+            <label for="titleInput">Report Title</label>
+            <textarea id="titleInput" class="dynamic-textarea" placeholder="Enter the report title here..." oninput="updatePrompt()"></textarea>
+        </div>
+
+        <div class="field-group">
+            <label for="taglineInput">Style Tagline</label>
+            <textarea id="taglineInput" class="dynamic-textarea" placeholder="e.g. Minimalist, Corporate, Cyberpunk..." oninput="updatePrompt()"></textarea>
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Generated Prompt</span>
+        </div>
+        <div class="prompt-content" id="p1"></div>
+        <button class="btn copy-btn" onclick="copyText('p1', this)">
+          <span>Copy Full Prompt</span>
+        </button>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Siva Prasad Mukherjee. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const template = `Act as a professional commercial product photographer. 
+Your goal is to create isolated product renders for high-end web use. Use Octane Render style, 8k resolution, and studio lighting.
+PROMPT: A high-resolution 3D mockup of a thin rectangular paper report.
+PHYSICAL SPECS: Thin A4 paper report, flexible cover, stapled edge, no thickness, 10-page thickness.
+POSITION: front facing flat.
+COVER ART: Bold typography reading "[Title]". Style inspired by: [Tagline]. Sub-text at bottom: "By শিবপ্রসাদ মুখার্জি".
+LIGHTING: Professional studio lighting, soft shadows.
+MANDATORY BACKGROUND RULE: Isolated on a perfectly solid, clean, flat white background. No floor, no props, no distracting environment. Optimized for background removal.
+TECHNICAL: 8k resolution, photorealistic, cinematic render. --ar 3:4
+RULE (MANDATORY)
+Use transparent background.`;
+
+    function updatePrompt() {
+      const title = document.getElementById('titleInput').value.trim() || "[Title]";
+      const tagline = document.getElementById('taglineInput').value.trim() || "[Tagline]";
+      
+      let finalPrompt = template.replace("[Title]", title);
+      finalPrompt = finalPrompt.replace("[Tagline]", tagline);
+      
+      document.getElementById('p1').innerText = finalPrompt;
+    }
+
+    function clearAll() {
+      document.getElementById('titleInput').value = "";
+      document.getElementById('taglineInput').value = "";
+      updatePrompt();
+    }
+
+    function copyText(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<span>Copied to Clipboard!</span>`;
+        btn.classList.add('copied');
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Initialize display on load
+    window.onload = updatePrompt;
+  </script>
+</body>
+</html>

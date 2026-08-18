@@ -1,0 +1,206 @@
+# Prompt Name
+
+**Audience Problem & Content Opportunity Analyzer**
+
+## Prompt Description
+
+এই prompt ব্যবহার করে একটি নির্দিষ্ট **niche** এবং **target audience**-এর বাস্তব সমস্যাগুলি বিশ্লেষণ করা যায়। এটি শুধু সমস্যার তালিকা তৈরি করে না; প্রতিটি সমস্যার সঙ্গে তার **underlying need, সম্ভাব্য consequence, recurrence, practical-help potential এবং educational content potential** বিশ্লেষণ করে।
+
+এর মূল উদ্দেশ্য হলো বোঝা:
+
+> **এই audience-এর কী কী বাস্তব সমস্যা আছে, কোন সমস্যাগুলি গুরুত্বপূর্ণ ও recurring, এবং সেই সমস্যাগুলিকে কেন্দ্র করে content বা online income business তৈরি করার বাস্তব সুযোগ আছে কি না।**
+
+## Who Should Use It
+
+এই prompt বিশেষভাবে ব্যবহার করতে পারেন:
+
+* যারা নতুন niche নিয়ে content business শুরু করতে চান
+* যারা কোনো niche-এর audience research করতে চান
+* যারা online income business-এর জন্য problem-based opportunities খুঁজছেন
+* content creator ও blogger
+* affiliate marketer
+* digital product creator
+* course বা training creator
+* consultant বা service provider
+* যারা কোনো niche-এ প্রবেশ করার আগে audience-এর সমস্যাগুলি যাচাই করতে চান
+
+## Why, Where, and When to Use It
+
+### Why
+
+কোনো niche বেছে নেওয়ার আগে শুধু **“এই niche-এ মানুষ আছে কি?”** জানা যথেষ্ট নয়।
+
+আরও গুরুত্বপূর্ণ হলো:
+
+**মানুষের বাস্তব সমস্যা আছে কি? তারা সেই সমস্যা সমাধানের জন্য সাহায্য খোঁজে কি? এবং সেই সমস্যা নিয়ে ধারাবাহিকভাবে useful content তৈরি করা যায় কি?**
+
+এই prompt সেই প্রশ্নগুলির preliminary analysis করতে সাহায্য করে।
+
+### Where
+
+এটি ব্যবহার করা যেতে পারে:
+
+* নতুন content niche নির্বাচন করার সময়
+* blog বা website planning-এর সময়
+* YouTube/Facebook/Pinterest content strategy তৈরির আগে
+* digital product idea research করার সময়
+* online business opportunity যাচাই করার সময়
+* audience research-এর প্রাথমিক পর্যায়ে
+
+### When
+
+সবচেয়ে ভালো সময় হলো **কোনো niche নিয়ে content বা business তৈরি শুরু করার আগে**।
+
+এটি বিশেষভাবে useful যখন আপনি কোনো niche পছন্দ করেছেন, কিন্তু এখনও নিশ্চিত নন যে সেই niche-এর audience-এর যথেষ্ট গুরুত্বপূর্ণ এবং recurring problems আছে কি না।
+
+## How It Works
+
+Prompt-টি একটি **problem → need → consequence → recurrence → help → content** analysis chain অনুসরণ করে।
+
+### Step 1: Niche ও Target Audience নির্ধারণ
+
+আপনি `[NICHE]` এবং `[TARGET AUDIENCE]` দিয়ে AI-কে context দেন।
+
+উদাহরণ:
+
+**Niche:** Small Boutique Business
+**Target Audience:** Beginner boutique owners
+
+### Step 2: Audience-এর বাস্তব সমস্যা শনাক্ত করা
+
+AI audience-এর perspective থেকে সম্ভাব্য বাস্তব সমস্যাগুলি খুঁজে বের করে এবং সেখান থেকে গুরুত্বপূর্ণ **১০টি problem** নির্বাচন করে।
+
+### Step 3: Underlying Need বের করা
+
+প্রতিটি problem-এর পিছনে আসল need কী, তা শনাক্ত করা হয়।
+
+অর্থাৎ শুধু:
+
+> “Facebook-এ sales হচ্ছে না”
+
+এখানেই থেমে না থেকে বোঝার চেষ্টা করা হয় যে এর পিছনে থাকতে পারে:
+
+> “কীভাবে consistentভাবে qualified customers পাওয়া যায়—এই need।”
+
+### Step 4: Consequence বিশ্লেষণ
+
+Problem-এর কারণে audience-এর কী ধরনের বাস্তব consequence হতে পারে, তা দেখা হয়।
+
+এতে বোঝা যায় কোন সমস্যাগুলি comparatively superficial এবং কোনগুলি বেশি consequential।
+
+### Step 5: Recurring Problems শনাক্ত করা
+
+কোন problem একবারের সমস্যা নয়, বরং বারবার ফিরে আসতে পারে—তা চিহ্নিত করা হয়।
+
+Recurring problems গুরুত্বপূর্ণ, কারণ এগুলি দীর্ঘমেয়াদি content এবং solution opportunity তৈরি করতে পারে।
+
+### Step 6: Practical Help-এর সম্ভাবনা যাচাই
+
+কোন সমস্যার ক্ষেত্রে audience শুধু information নয়, **practical help** চাইতে পারে—তা নির্ধারণ করা হয়।
+
+এটি future service, guide, template, course, consultation বা digital product opportunity-এর জন্য useful signal দিতে পারে।
+
+### Step 7: Educational Content Potential যাচাই
+
+শেষে দেখা হয় কোন সমস্যাগুলি নিয়ে নিয়মিত educational content তৈরি করা সম্ভব।
+
+ফলে একটি problem শুধু audience pain point নয়, বরং potential **content pillar** হিসেবেও বিবেচিত হয়।
+
+### Step 8: Reality Check
+
+Prompt-এর শেষ instruction একটি গুরুত্বপূর্ণ safeguard:
+
+> **কোনও তথ্য নিশ্চিতভাবে জানা না থাকলে সেটিকে fact হিসেবে উপস্থাপন করবেন না।**
+
+এর ফলে AI-কে speculation এবং established fact-এর মধ্যে পার্থক্য রাখতে বলা হয়।
+
+## What Transformation It Brings and How
+
+এই prompt-এর মূল transformation হলো:
+
+**Niche Idea → Audience Problems → Underlying Needs → Content Opportunities**
+
+অর্থাৎ, এটি একটি সাধারণ niche ধারণাকে আরও actionable research framework-এ রূপান্তর করে।
+
+উদাহরণস্বরূপ:
+
+**“আমি এই niche নিয়ে business করতে চাই।”**
+
+থেকে আপনি এগিয়ে যেতে পারেন:
+
+**“এই niche-এর audience-এর সবচেয়ে গুরুত্বপূর্ণ সমস্যাগুলি কী?”**
+
+তারপর:
+
+**“কেন সমস্যাগুলি গুরুত্বপূর্ণ?”**
+
+→ **“কোনগুলি recurring?”**
+
+→ **“কোনগুলির জন্য practical help-এর demand থাকতে পারে?”**
+
+→ **“কোনগুলি নিয়ে ধারাবাহিক educational content তৈরি করা যায়?”**
+
+ফলে transformation-টি মূলত:
+
+> **Niche Guessing → Problem-Based Opportunity Discovery**
+
+তবে গুরুত্বপূর্ণ বিষয় হলো, এই prompt **নিজে থেকে market demand বা profitability প্রমাণ করে না**। এটি একটি **initial opportunity-discovery এবং validation step** হিসেবে কাজ করে। বাস্তব demand যাচাই করার জন্য পরে search data, audience discussions, competitor analysis, keyword research বা অন্যান্য evidence ব্যবহার করা উচিত।
+
+## How to Use It
+
+### Step 1: আপনার niche লিখুন
+
+`[NICHE]`-এর জায়গায় যে niche নিয়ে কাজ করতে চান সেটি লিখুন।
+
+উদাহরণ:
+
+`[NICHE] = Online Fitness for Beginners`
+
+### Step 2: Target audience নির্দিষ্ট করুন
+
+`[TARGET AUDIENCE]`-এর জায়গায় আপনার intended audience লিখুন।
+
+যত নির্দিষ্ট audience হবে, analysis তত বেশি useful হওয়ার সম্ভাবনা থাকে।
+
+উদাহরণ:
+
+`[TARGET AUDIENCE] = Indian beginners who want to lose weight at home`
+
+### Step 3: সম্পূর্ণ prompt AI-কে দিন
+
+Niche এবং target audience বসিয়ে পুরো prompt-টি ChatGPT বা অন্য উপযুক্ত AI tool-এ submit করুন।
+
+### Step 4: Output-এর ১০টি problem দেখুন
+
+শুধু problem-এর সংখ্যা দেখবেন না। দেখুন:
+
+* কোন সমস্যাগুলি সত্যিই গুরুত্বপূর্ণ?
+* কোনগুলি recurring?
+* কোনগুলির consequence বেশি?
+* কোনগুলির জন্য practical help-এর সম্ভাবনা আছে?
+* কোনগুলি নিয়ে দীর্ঘমেয়াদি content তৈরি করা সম্ভব?
+
+### Step 5: Strongest problems আলাদা করুন
+
+১০টি problem-এর মধ্যে যেগুলি একাধিক criterion পূরণ করে, সেগুলিকে পরবর্তী research-এর জন্য shortlist করুন।
+
+বিশেষ করে এমন problems লক্ষ্য করুন যেগুলি:
+
+**Important + Recurring + Help-Seeking + Content-Friendly**
+
+### Step 6: পরবর্তী validation করুন
+
+এই prompt-এর output-কে final business decision হিসেবে ব্যবহার করবেন না।
+
+Shortlisted problems-এর বাস্তবতা যাচাই করতে পরবর্তী ধাপে:
+
+* search behavior
+* keyword demand
+* community discussions
+* competitor content
+* existing products/services
+* audience questions
+
+ইত্যাদি পরীক্ষা করুন।
+
+এভাবে এই prompt একটি **niche selection-এর starting point** থেকে একটি **evidence-based content এবং online business validation process-এর প্রথম ধাপ** হিসেবে কাজ করতে পারে।

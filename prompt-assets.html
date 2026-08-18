@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prompt Assets - Link Genie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient-start: #020617;
+      --bg-gradient-end: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.4);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-primary: #22d3ee;
+      --accent-hover: #67e8f9;
+      --accent-success: #10b981;
+      --code-bg: rgba(0, 0, 0, 0.3);
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: fixed linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .prompt-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .step-label {
+      font-weight: 800;
+      font-size: 0.8rem;
+      background: var(--accent-primary);
+      color: #020617;
+      padding: 5px 16px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .prompt-content {
+      background: var(--code-bg);
+      padding: 30px;
+      border-radius: 12px;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 25px;
+      line-height: 1.6;
+      word-break: break-word;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    /* Custom scrollbar for long prompts */
+    .prompt-content::-webkit-scrollbar {
+      width: 8px;
+    }
+    .prompt-content::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.1);
+    }
+    .prompt-content::-webkit-scrollbar-thumb {
+      background: var(--accent-primary);
+      border-radius: 10px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      width: 100%;
+      text-decoration: none;
+      border: none;
+    }
+
+    .copy-btn {
+      background: rgba(34, 211, 238, 0.1);
+      color: var(--accent-primary);
+      border: 1px solid var(--accent-primary);
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-primary);
+      color: #020617;
+    }
+
+    .copy-btn.copied {
+      background: var(--accent-success);
+      border-color: var(--accent-success);
+      color: white;
+    }
+
+    .footer {
+      margin-top: 80px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 40px;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .step-card { padding: 25px; }
+      .prompt-content { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Prompt Assets</h1>
+    </header>
+
+    <div class="prompt-workflow">
+      
+      <!-- Prompt #1 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #1</span>
+        </div>
+        <div class="prompt-content" id="p1">Please convert the content from your last reply into a Facebook post that introduces the blog post.</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p1', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Prompt #2 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #2</span>
+        </div>
+        <div class="prompt-content" id="p2">Create the actual finished Facebook promotional graphic now using ChatGPT's image-generation capability.
+
+IMPORTANT:
+
+Do NOT ask me to upload an image.
+
+There is no existing ecover, product image, mockup, screenshot, or visual reference to use.
+
+Create the entire promotional graphic completely from scratch.
+
+Use the product, offer, target audience, positioning, benefits, language rules, and other relevant information already established in this conversation as your source of truth.
+
+Do not ask me to repeat or provide information that is already available in this conversation.
+
+Do not invent information that has not been established in the conversation.
+
+DESIGN THE GRAPHIC
+
+Create ONE polished, premium, professionally art-directed Facebook promotional graphic based on the actual product being sold.
+
+The visual representation must accurately reflect what the product actually is.
+
+If the product is an AI Prompt, represent it as a premium digital AI prompt/tool concept — NOT as a book, ebook, report, course, guide, prompt pack, or collection of prompts.
+
+Create the product visual entirely from scratch.
+
+Do not depend on any existing image.
+
+Do not create a generic template.
+
+Use the product's actual niche, strongest benefit, target audience, and positioning to determine the visual concept.
+
+COMPOSITION
+
+- Square 1080 × 1080 Facebook graphic
+- Mobile-first design
+- One dominant scroll-stopping hook
+- One clear product visual
+- One short supporting line only if genuinely useful
+- Product name where appropriate
+- Author/brand name where already established
+- One short CTA only if useful
+- Strong visual hierarchy
+- Large, readable typography
+- Generous safe margins
+- Premium lighting, depth, contrast, and composition
+- Minimal but visually impactful copy
+
+Do not use excessive text, bullet lists, multiple competing hooks, icon piles, fake UI elements, or visual clutter.
+
+COPY
+
+Write the visible copy yourself based on the strongest practical benefit and problem already established in this conversation.
+
+Keep the copy concise, persuasive, natural, and appropriate for Facebook cold traffic.
+
+Do not reveal the complete product or prompt.
+
+Do not invent testimonials, statistics, prices, discounts, guarantees, scarcity, awards, rankings, or unsupported claims.
+
+LANGUAGE
+
+Follow the language rules already established in this conversation.
+
+If Bengali (India) is required:
+
+- Use only Bengali (India), except for genuinely necessary English terms, proper names, product names, or established platform terminology.
+- Always address the reader as "আপনি" where direct address is required.
+- Never use "তুমি" or "তুই".
+- Use natural, modern Bengali.
+- Use a natural Kolkata-style conversational tone.
+- Avoid Bangladeshi vocabulary, spelling, expressions, and sentence patterns.
+
+FINAL CHECK
+
+Before generating the image, silently verify:
+
+- The product is accurately represented.
+- The visual was created completely from scratch.
+- No existing image is required.
+- The hook is immediately understandable.
+- The product name and author/brand are accurate.
+- The text is correctly spelled and readable.
+- The design works on a mobile Facebook feed.
+- No unsupported claims or invented information have been added.
+- The graphic has one clear focal point and one clear conversion message.
+
+FINAL OUTPUT
+
+Generate ONE finished, production-ready 1080 × 1080 Facebook promotional graphic directly inside the chat.
+
+Do not return a prompt, explanation, design brief, plan, code, or written description.
+
+Return only the finished image.</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p2', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Prompt #3 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #3</span>
+        </div>
+        <div class="prompt-content" id="p3">Use this Color Palettes: Childhood gets one
+Colors in Palette
+Hex	RGB
+#a4efde	(164,239,222)
+#6ccd9c	(108,205,156)
+#3da990	(61,169,144)
+#3caf2a	(60,175,42)
+#7ebd2e	(126,189,46)</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p3', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Prompt #4 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #4</span>
+        </div>
+        <div class="prompt-content" id="p4">Answer the following prompt in Bengali (India).
+
+Rules:
+- Use only Bengali (India).
+- Always address the reader as "আপনি".
+- Never use "তুমি" or "তুই".
+- Use a natural Kolkata-style conversational tone.
+- Use natural, modern Bengali (India).
+- Avoid Bangladeshi vocabulary, spelling, and expressions.
+
+PROMPT
+
+Create the actual finished sales-page promotional graphic now using ChatGPT's image-generation capability.
+
+IMPORTANT:
+
+There is NO existing product image, ecover, book cover, mockup, screenshot, or visual reference to use.
+
+Do NOT ask me to upload an image.
+
+Do NOT request an existing product visual.
+
+Create the entire graphic completely from scratch.
+
+Use the product information, product description, positioning, target audience, strongest benefit, sales message, and other relevant information already established in this conversation as the source of truth.
+
+Do not ask me to repeat information that is already available in this conversation.
+
+Create the actual best-and-final image directly inside this chat.
+
+Do not use Python, HTML, CSS, SVG, canvas, presentation software, or any other code-based design method.
+
+Do not return an image prompt, design brief, plan, code, instructions, or written description.
+
+Render ONE polished final image only.
+
+==================================================
+VISUAL CONCEPT
+==================================================
+
+Create a premium 16:9 sales-page promotional graphic that visually communicates the actual product and its strongest practical benefit.
+
+The visual concept must be developed from scratch based on:
+
+- What the product actually is
+- The problem it solves
+- Who it is for
+- The strongest benefit
+- The distinctive approach or mechanism
+- The sales message already established in this conversation
+
+Do not create a generic digital-product advertisement.
+
+Do not simply place text over an abstract background.
+
+Develop one strong, topic-relevant visual concept that makes the product's value understandable within seconds.
+
+If the product is an AI Prompt, represent it as a premium digital AI tool or focused AI workflow concept rather than as a book, ebook, report, course, guide, prompt pack, or collection of prompts.
+
+The visual representation must accurately match the actual product category.
+
+==================================================
+SALES MESSAGE
+==================================================
+
+Use the product description and sales copy already established immediately before this prompt to identify the strongest sales message.
+
+Select ONE dominant benefit-driven message for the main headline.
+
+Do not invent a new positioning.
+
+Do not broaden the product's promise.
+
+The headline should communicate the most desirable practical outcome, problem solved, or meaningful improvement that is genuinely supported by the product.
+
+==================================================
+COMPOSITION
+==================================================
+
+Create a wide 16:9 composition.
+
+Use a strong two-part visual hierarchy:
+
+- One side: a compelling, original visual representation of the product
+- Other side: the main sales message and supporting information
+
+The product visual and headline should be the two dominant elements.
+
+Keep the product visual large and clearly recognizable.
+
+Use:
+
+- One bold benefit-driven headline
+- One short supporting sentence
+- Exactly 3 short benefit callouts
+- Author or brand name once, if already established
+- One short CTA only when it genuinely improves clarity
+
+Keep every benefit callout concise, ideally approximately 3–7 words.
+
+Do not use paragraphs.
+
+Do not overcrowd the composition.
+
+Keep generous space around all major elements.
+
+Keep all important text comfortably inside safe margins.
+
+==================================================
+VISUAL QUALITY STANDARD
+==================================================
+
+Make the finished image feel:
+
+- Premium
+- Dramatic
+- Modern
+- Professionally art-directed
+- Purposeful
+- Visually distinctive
+- Conversion-focused
+- Appropriate for a digital-product sales page
+
+Use:
+
+- Strong visual hierarchy
+- Confident typography
+- Purposeful contrast
+- Dimensional lighting
+- Controlled depth
+- Subtle texture
+- Topic-relevant visual storytelling
+- Sophisticated composition
+- Clear focal points
+
+Every visual element must have a purpose.
+
+Avoid:
+
+- Generic stock-photo layouts
+- Random decorative elements
+- Excessive icons
+- Icon piles
+- Tiny text
+- Flat presentation
+- Weak contrast
+- Excessive visual effects
+- Awkward empty areas
+- Visual noise
+- Presentation-slide aesthetics
+- Generic web-banner styling
+
+The final image should look like a professionally art-directed sales campaign asset.
+
+==================================================
+PRODUCT VISUAL
+==================================================
+
+Because there is no existing product visual, create an ORIGINAL representation of the product from scratch.
+
+The product visual should:
+
+- Clearly communicate what the product is
+- Feel substantial and valuable
+- Fit naturally into the overall composition
+- Use visual metaphors relevant to the product's actual subject
+- Support the sales message rather than compete with it
+
+Do not invent a physical product that does not exist.
+
+Do not create a fake book cover, fake software interface, fake app, fake certificate, or fake product packaging unless such a representation is genuinely appropriate to the product.
+
+Do not add unrelated objects simply to make the image look more elaborate.
+
+==================================================
+TEXT RULES
+==================================================
+
+Use the product information already established in this conversation.
+
+Do not invent product claims.
+
+The graphic may contain:
+
+1. One main headline
+2. One short supporting sentence
+3. Exactly 3 short benefit callouts
+4. Author or brand name once, if provided
+5. One CTA, if useful
+
+Keep copy minimal.
+
+Do not:
+
+- Repeat the headline
+- Repeat the product name unnecessarily
+- Use bullet-list paragraphs
+- Add feature dumps
+- Add multiple competing headlines
+- Add excessive badges
+- Add fake proof
+- Add unnecessary technical explanations
+- Reveal the complete prompt
+- Reproduce the complete product description
+
+The purpose of the graphic is to sell the VALUE of the product, not reveal the product itself.
+
+==================================================
+ACCURACY AND TRUST RULES
+==================================================
+
+Use only information already established in this conversation.
+
+Do not invent:
+
+- Testimonials
+- Customers
+- Case studies
+- Statistics
+- Research findings
+- Awards
+- Rankings
+- Endorsements
+- Credentials
+- Prices
+- Discounts
+- Bonuses
+- Guarantees
+- Scarcity
+- Deadlines
+- Income claims
+- Guaranteed results
+- Fake logos
+- Fake certifications
+- Unsupported performance claims
+
+Do not use exaggerated claims simply to make the graphic more persuasive.
+
+The visual and copy must remain commercially persuasive while being factually honest.
+
+==================================================
+LANGUAGE RULES
+==================================================
+
+Follow the Bengali (India) language rules established above.
+
+Use:
+
+- Natural Bengali (India)
+- Modern Kolkata-style Bengali
+- Clear and conversational wording
+- "আপনি" where direct address is required
+
+Never use:
+
+- "তুমি"
+- "তুই"
+- Bangladeshi vocabulary
+- Bangladeshi spelling
+- Bangladeshi expressions
+- Unnecessarily literary or archaic Bengali
+
+English may remain where genuinely necessary for:
+
+- Product names
+- Proper names
+- Established platform terminology
+- Commonly used digital/AI terminology
+
+==================================================
+TYPOGRAPHY AND READABILITY
+==================================================
+
+Make all visible text large, clean, and highly readable.
+
+Before finalizing, silently check:
+
+- Bengali spelling
+- English spelling
+- Product name accuracy
+- Author/brand name accuracy
+- Word spacing
+- Letter spacing
+- Alignment
+- Cropping
+- Contrast
+- Safe margins
+- Mobile and desktop readability
+
+Do not generate:
+
+- Nonsense text
+- Placeholder text
+- Duplicated words
+- Misspelled names
+- Accidental logos
+- Unreadable lettering
+- Decorative text with no meaning
+
+==================================================
+FINAL QUALITY CHECK
+==================================================
+
+Before generating the image, silently verify:
+
+- No existing image is required.
+- No image upload is necessary.
+- The entire visual has been created from scratch.
+- The product is accurately represented.
+- The product category has not been changed.
+- The main headline communicates one strong benefit.
+- The sales message is supported by the actual product.
+- Exactly 3 short benefit callouts are used.
+- The visual hierarchy is immediately clear.
+- The product visual and headline are the dominant elements.
+- All important text is readable.
+- The composition has generous safe margins.
+- The graphic feels premium and professionally art-directed.
+- No unsupported claims have been added.
+- No unnecessary visual clutter has been added.
+
+==================================================
+FINAL OUTPUT
+==================================================
+
+Generate ONE finished, production-ready 16:9 sales-page promotional graphic directly inside the chat.
+
+Do NOT:
+
+- Ask for an image
+- Ask for an ecover
+- Ask for a mockup
+- Ask for a screenshot
+- Ask for a reference image
+- Return an image prompt
+- Return a design brief
+- Return a plan
+- Return code
+- Return instructions
+- Return a written explanation
+
+Create the complete promotional graphic from scratch using the information already established in this conversation.
+
+Return only ONE finished final image.</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p4', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Prompt #5 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #5</span>
+        </div>
+        <div class="prompt-content" id="p5">Please tailor it to a 16:9 sales-page banner</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p5', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Siva Prasad Mukherjee. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    function copyText(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<span>Copied to Clipboard!</span>`;
+        btn.classList.add('copied');
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

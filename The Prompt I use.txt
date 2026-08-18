@@ -1,0 +1,449 @@
+Prompt#1:
+
+Please review the prompt below and provide the following information:
+
+1. Prompt Name
+2. Prompt Description
+3. Who Should Use It
+4. Why, Where, and When to Use It
+5. How It Works
+6. What Transformation It Brings and How
+7. How to Use It
+
+PROMPT:
+
+[Insert Your Prompt Here]
+
+
+Prompt#2:
+
+TASK
+
+Based on the AI prompt provided below, write a strong, ready-to-use product description for its sales page.
+
+Treat the AI prompt itself as the product being sold.
+
+Analyze the actual prompt carefully and use its capabilities, intended use, target user, problem solved, distinctive approach, and practical benefits as the foundation of the product description.
+
+If an official product title, author name, or brand name is provided, preserve it exactly.
+
+Do not rename the product or invent a different positioning.
+
+PRODUCT DESCRIPTION GOAL
+
+Write a product description that helps a potential buyer quickly understand:
+
+- What problem this prompt helps solve
+- Who the prompt is for
+- What the buyer can use it to accomplish
+- Why the prompt is useful
+- What makes its approach distinctive
+- What the buyer can understand, create, decide, improve, simplify, or avoid by using it
+- Why having this ready-to-use prompt can be more useful than starting from a blank AI chat every time
+
+The description should make the prompt feel like a practical, focused tool worth owning and using.
+
+FORMAT
+
+Include:
+
+1. A compelling headline focused on the strongest practical benefit or desired outcome.
+
+2. Exactly 4 persuasive paragraphs.
+
+The 4 paragraphs should naturally cover:
+
+Paragraph 1 — THE PROBLEM
+Identify the specific situation, frustration, task, confusion, or challenge the intended user is likely facing.
+
+Paragraph 2 — THE SOLUTION
+Introduce the prompt as the focused solution and explain what it helps the user do differently.
+
+Paragraph 3 — THE BENEFITS
+Highlight the strongest practical benefits, capabilities, insights, shortcuts, decisions, improvements, or problems the user can address with the prompt.
+
+Paragraph 4 — THE VALUE
+Reinforce why the prompt is useful as a reusable tool, what it can simplify or save the user from having to figure out repeatedly, and why it deserves a place in the user's practical AI toolkit.
+
+COPY STANDARDS
+
+- Write like an experienced direct-response copywriter.
+- Keep the language clear enough for an eighth-grade reader.
+- Use contractions naturally where appropriate.
+- Make the writing human, confident, conversational, and easy to read.
+- Lead with buyer benefits and practical outcomes rather than technical prompt features.
+- Use specific, concrete language rather than vague marketing language.
+- Use short, readable sentences and natural transitions.
+- Make the product feel useful without making it sound complicated.
+- Make every paragraph increase clarity, desire, trust, or perceived usefulness.
+- Keep the positioning narrow and specific to the actual prompt.
+- Focus on the value of the prompt, not on AI technology itself.
+- Avoid generic claims such as "save time," "work smarter," or "get better results" unless they are connected to a specific capability of the prompt.
+- Do not turn the description into a tutorial or explanation of how to write prompts.
+
+PROMPT-AS-PRODUCT RULE
+
+The product is ONE AI PROMPT.
+
+Therefore:
+
+- Do not describe it as a report.
+- Do not describe it as an ebook.
+- Do not describe it as a course.
+- Do not describe it as a guide.
+- Do not describe it as a prompt pack.
+- Do not imply that the buyer receives multiple prompts.
+- Do not invent chapters, modules, lessons, worksheets, bonuses, templates, or additional resources.
+- Do not describe features that aren't actually part of the prompt.
+
+If the prompt contains a framework, checklist, workflow, sequence, or multiple instructions, describe those as capabilities built into the single prompt.
+
+IMPORTANT PRODUCT-TRUTH RULE
+
+Every important claim must be reasonably supported by the actual prompt.
+
+Do not invent:
+
+- Testimonials
+- Customers
+- Case studies
+- Statistics
+- Research findings
+- Credentials
+- Endorsements
+- Bonuses
+- Prices
+- Discounts
+- Scarcity
+- Deadlines
+- Guarantees
+- Refund policies
+- Income claims
+- Guaranteed results
+
+Do not use fake urgency, false scarcity, manipulative fear, exaggerated hype, or unsupported superlatives.
+
+Do not claim that the buyer will definitely achieve a particular result.
+
+If a benefit depends on the user's inputs, judgment, execution, or external circumstances, phrase it appropriately.
+
+Do not present assumptions as facts.
+
+NAMING RULE
+
+If an official product title, author name, or brand name is provided, reproduce it exactly as provided.
+
+Do not create a new title, subtitle, author, brand, or promise.
+
+If no such information is provided, do not invent one.
+
+IMPORTANT LANGUAGE RULE
+
+Do not unnecessarily use technical language.
+
+The reader should understand the product's practical value even if they know very little about prompt engineering.
+
+Do not reveal the complete prompt or reproduce its full instructions in the product description.
+
+The goal is to sell the usefulness of the prompt, not to give away the product itself.
+
+OUTPUT RULE
+
+Return ONLY the finished product description.
+
+Do not include:
+
+- Analysis
+- Explanation
+- Setup commentary
+- Notes
+- Recommendations
+- Alternative versions
+- A summary of your reasoning
+- Closing notes outside the finished asset
+
+Use clean formatting.
+
+FINAL STRUCTURE:
+
+[Compelling Headline]
+
+[Paragraph 1]
+
+[Paragraph 2]
+
+[Paragraph 3]
+
+[Paragraph 4]
+
+PRODUCT INFORMATION:
+
+Official Product Title: [Offer Name]
+
+Author/Brand: Siva Prasad Mukherjee
+
+PROMPT TO DESCRIBE:
+
+[Insert Your Prompt Here]
+
+Prompt#3 (Name it -> long-form sales letter)
+
+TASK
+
+Write the complete best-and-final long-form sales letter for the AI prompt provided below.
+
+Treat the PROMPT itself as the product being sold.
+
+Do not treat it as a report, ebook, course, guide, prompt pack, or collection of prompts unless the prompt itself clearly indicates that it is one.
+
+PRODUCT INTELLIGENCE
+
+Analyze the actual prompt and use its content to determine:
+
+- The exact problem the prompt solves
+- The intended user
+- The situation in which the user would need it
+- The strongest and most desirable benefit
+- The core job the prompt performs
+- The distinctive mechanism, method, framework, or angle built into the prompt
+- The before-and-after transformation the prompt is designed to create
+- The strongest practical insights, decisions, shortcuts, protections, or improvements the user can gain from using it
+- What makes this prompt more useful than simply asking an AI tool a vague question
+- Any important limitations or boundaries that should remain clear
+
+Do not invent product intelligence that isn't reasonably supported by the prompt.
+
+SALES-LETTER GOAL
+
+Make the reader quickly recognize a problem they have, understand why solving it matters, see why their current or common approach may be inefficient or incomplete, understand how this prompt provides a focused solution, and want immediate access because the prompt feels useful, specific, practical, easy to use, and worth owning.
+
+The sales letter should sell the VALUE OF THE PROMPT, not the prompt's wording.
+
+NATURAL SALES PROGRESSION
+
+Structure the sales letter in this progression:
+
+1. A strong, specific headline built around the most desirable advantage, outcome, or relief the prompt can provide.
+
+2. A supporting subheadline that clearly identifies who the prompt is for and what it helps them accomplish.
+
+3. An opening that enters the reader's real situation, frustration, task, decision, or desired outcome without generic warm-up language.
+
+4. A problem-agitation section that makes the difficulty, wasted effort, confusion, missed opportunity, inconsistency, or risk recognizable without exaggeration.
+
+5. A pattern interrupt that reveals the overlooked reason the problem is harder than it appears, or why common approaches often produce weak or inconsistent results.
+
+6. A natural introduction of the prompt as the focused solution.
+
+7. A clear explanation of HOW THE PROMPT WORKS at a conceptual level.
+
+   Explain the underlying mechanism, structure, framework, sequence, or thinking process built into the prompt.
+
+   Do not simply reproduce the prompt or explain every line of its wording.
+
+8. A benefit-rich section showing what the user can use the prompt to:
+   - understand
+   - analyze
+   - decide
+   - create
+   - improve
+   - simplify
+   - avoid
+   - accomplish
+
+   Base these benefits on the actual capabilities of the prompt.
+
+9. Strong persuasive bullet points based on the actual prompt.
+
+   Each bullet should communicate a specific advantage, useful capability, practical takeaway, shortcut, protection, decision, or improvement.
+
+   Do not write generic bullets such as:
+   - "Save time"
+   - "Get better results"
+   - "Work smarter"
+
+   unless the prompt clearly supports a specific version of that benefit.
+
+10. A section explaining why the prompt is practical and easy to use.
+
+    Show how it reduces the user's need to figure out the entire task from scratch.
+
+    Make the prompt feel like a reusable tool rather than merely a piece of information.
+
+11. A "Who This Is For" section based strictly on the actual use case of the prompt.
+
+12. A "Why This Prompt Is Useful" or equivalent value section explaining why having a ready-to-use, structured prompt can save the user time, effort, uncertainty, or repeated trial and error compared with starting from a blank AI chat every time.
+
+13. A clear call to action focused on the immediate practical benefit of getting and using the prompt.
+
+14. A concise closing section that reinforces the core problem, the practical solution, and one final reason to act.
+
+COPY STANDARDS
+
+- Write like an experienced direct-response copywriter who fully understands the product.
+- Keep the language clear enough for an eighth-grade reader.
+- Use contractions naturally.
+- Use a human, confident, conversational tone.
+- Lead with buyer advantages and outcomes rather than describing the prompt's features mechanically.
+- Use specificity, contrast, curiosity, emotional recognition, and practical value without forced cleverness.
+- Use short paragraphs, purposeful subheads, varied sentence lengths, and strong transitions.
+- Make every section earn its place by increasing desire, clarity, trust, or perceived usefulness.
+- Make the copy persuasive without sounding exaggerated or hype-driven.
+- Focus on the user's problem and desired outcome rather than the technical sophistication of the prompt.
+- Keep the product positioning narrow and specific.
+- Do not broaden the prompt into a larger promise than it can actually fulfill.
+- Do not sell "AI" as the product. Sell the practical solution the prompt enables.
+- Do not make the prompt sound complicated simply to increase perceived value.
+- Do not reveal unnecessary internal prompt mechanics if doing so would reduce the product's perceived usefulness or make the sales letter read like technical documentation.
+
+PROMPT-AS-PRODUCT RULE
+
+The product is ONE AI PROMPT.
+
+Therefore:
+
+- Do not refer to it as a "report."
+- Do not refer to it as an "ebook."
+- Do not refer to it as a "course."
+- Do not refer to it as a "guide."
+- Do not refer to it as a "prompt pack."
+- Do not imply that the buyer is receiving multiple prompts.
+- Do not invent chapters, modules, lessons, worksheets, templates, bonuses, or additional resources.
+- Do not describe a product ecosystem that does not exist.
+
+If the prompt itself contains a framework, checklist, workflow, or multi-step process, describe that as part of the prompt's functionality—not as a separate product.
+
+IMPORTANT DISTINCTION
+
+Do not sell the prompt by saying:
+
+"You are buying a prompt."
+
+Instead, sell the practical value of having a structured, reusable prompt that helps the user accomplish a specific task more effectively.
+
+The reader should understand:
+
+PROBLEM
+→ Why the task is difficult
+
+BETTER APPROACH
+→ What the prompt changes
+
+PROMPT
+→ The focused tool that enables that approach
+
+OUTCOME
+→ What the user can do more clearly, efficiently, consistently, or effectively
+
+TRUTH AND SAFETY RULES
+
+- Do not invent testimonials.
+- Do not invent customers or case studies.
+- Do not invent personal experiences.
+- Do not invent statistics or research findings.
+- Do not invent credentials.
+- Do not invent endorsements.
+- Do not invent bonuses.
+- Do not invent prices.
+- Do not invent discounts.
+- Do not invent scarcity.
+- Do not invent deadlines.
+- Do not invent guarantees.
+- Do not invent refund policies.
+- Do not make income claims.
+- Do not claim the buyer will definitely achieve a particular result.
+- Do not use fake urgency.
+- Do not use false scarcity.
+- Do not use manipulative fear.
+- Do not use exaggerated or unsupported superlatives.
+- Do not make claims that cannot reasonably be supported by the prompt itself.
+- If a benefit depends on the user's execution, skill, inputs, or external circumstances, phrase the benefit appropriately.
+- Never present assumptions as established facts.
+
+IMPORTANT PRODUCT-TRUTH RULE
+
+Every major promise in the sales letter must be traceable to an actual capability, mechanism, or intended use of the prompt.
+
+If the prompt does not support a claim, do not make the claim.
+
+If information about the intended audience, price, platform, author, brand, or offer is not provided, do not invent it.
+
+OUTPUT RULE
+
+Return ONLY the polished, ready-to-use long-form sales letter.
+
+Do not provide:
+- analysis
+- explanation
+- commentary
+- notes
+- recommendations
+- alternative versions
+- a summary of the prompt
+- an explanation of how you wrote the sales letter
+
+Use clean formatting, strong headings, persuasive bullets, short readable paragraphs, and a clear call to action.
+
+PROMPT TO SELL:
+
+[Insert Your Prompt Here]
+
+Prompt#4:
+
+Convert this into a Graphy.com Sales Page.
+
+RULES (MANDATORY)
+
+Ensure that the output complies with Graphy.com's character limits:
+
+- Title: Maximum 55 characters
+- Description: Maximum 1,000 characters
+
+
+Prompt#5:
+
+Please convert it into a Bengali bridge page. I am selling this prompt, and its sales page URL is [SP URL].
+
+Prompt#6:
+
+You are an expert social media copywriter and cold traffic conversion specialist. Your job is to write a Facebook post that stops a complete stranger mid-scroll, earns their trust, and drives them to click through to [Bridge Page URL] — without ever feeling like an ad.
+
+Cold traffic on Facebook has never heard of this offer. They didn't come to buy anything. Your post needs to feel like something a real person wrote — not a marketer — while doing the full job of a conversion asset.
+
+OFFER:
+OFFER NAME: [Offer Name]
+
+OFFER DESCRIPTION:
+[Copy]
+
+FACEBOOK POST STRUCTURE — follow this exactly:
+
+HOOK LINE (1 sentence — this is everything):
+- This is the line that shows before "See More" — if it doesn't stop the scroll, nothing else matters
+- Do NOT open with a question, "I want to share something", or the product name
+- Open with a specific relatable situation, an uncomfortable truth, or a pattern interrupt
+- Write 5 hook line options — the user will choose the strongest one
+
+BODY (120-200 words):
+- Start by agitating the pain or desire — make the reader feel understood before introducing anything
+- Build the case naturally: problem → failed attempts → why this is different
+- Introduce the offer as the logical solution — not as an announcement
+- Use short paragraphs (2-3 lines max) mixed with an occasional single punchy line
+- Every paragraph should make the next one impossible not to read
+- Avoid: "I'm excited to share", "game changer", "this changed my life", "you need this"
+- Write like a person thinking out loud — not a marketer presenting a product
+
+CALL TO ACTION (2-3 sentences):
+- Send them to [Bridge Page URL]
+- Make the click feel low-risk and high-reward
+- Create curiosity or urgency — not pressure
+- Do NOT say "click the link below" — write a CTA that sells the destination
+
+SEO & REACH NOTES:
+- Suggest the best time to post for maximum organic reach
+- Suggest 3 audience targeting interests if running this as a paid ad
+- Suggest 1 image or video concept that would pair with this post to maximize engagement
+
+ALSO PROVIDE:
+- 3 alternative hook lines with different angles (pain / curiosity / social proof)
+- 1 shortened version (under 80 words) optimized for mobile-first cold audiences
