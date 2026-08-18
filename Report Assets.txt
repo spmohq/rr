@@ -1,0 +1,11 @@
+Button Text: Report Ideas
+Button Link: https://spmohq.github.io/atmn/report-ideas.html
+
+Button Text: Report Outline
+Button Link: https://spmohq.github.io/atmn/report-outline.html
+
+Button Text: Main Report
+Button Link: https://spmohq.github.io/atmn/main-report.html
+
+Button Text: Report Assets
+Button Link: https://spmohq.github.io/atmn/report-assets.html

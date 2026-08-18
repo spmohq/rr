@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Main Report Genie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient-start: #020617;
+      --bg-gradient-end: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.4);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-primary: #22d3ee;
+      --accent-hover: #67e8f9;
+      --accent-success: #10b981;
+      --code-bg: rgba(0, 0, 0, 0.3);
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: fixed linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .prompt-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .step-label {
+      font-weight: 800;
+      font-size: 0.8rem;
+      background: var(--accent-primary);
+      color: #020617;
+      padding: 5px 16px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .prompt-content {
+      background: var(--code-bg);
+      padding: 30px;
+      border-radius: 12px;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 25px;
+      line-height: 1.6;
+      word-break: break-word;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    /* Custom Scrollbar */
+    .prompt-content::-webkit-scrollbar {
+      width: 8px;
+    }
+    .prompt-content::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .prompt-content::-webkit-scrollbar-thumb {
+      background: var(--accent-primary);
+      border-radius: 4px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      width: 100%;
+      text-decoration: none;
+      border: none;
+    }
+
+    .copy-btn {
+      background: rgba(34, 211, 238, 0.1);
+      color: var(--accent-primary);
+      border: 1px solid var(--accent-primary);
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-primary);
+      color: #020617;
+    }
+
+    .copy-btn.copied {
+      background: var(--accent-success);
+      border-color: var(--accent-success);
+      color: white;
+    }
+
+    .footer {
+      margin-top: 80px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 40px;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .step-card { padding: 25px; }
+      .prompt-content { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Main Report Genie</h1>
+    </header>
+
+    <div class="prompt-workflow">
+      
+      <!-- Prompt #1 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #1: Copyright & Disclaimer</span>
+        </div>
+        <div class="prompt-content" id="p1">Answer the following prompt in Bengali (India).
+
+Rules:
+- Use only Bengali (India).
+- Always address the reader as "আপনি".
+- Never use "তুমি" or "তুই".
+- Use a natural Kolkata-style conversational tone.
+- Use natural, modern Bengali (India).
+- Avoid Bangladeshi vocabulary, spelling, and expressions.
+
+PROMPT
+
+Create one polished all-in-one copyright, disclaimer, and change notice for the report we've been building in this same chat. This notice will be placed on the first page of the finished report.
+
+Use the exact final report title already established earlier in this same chat and the author or brand name only if one was provided earlier in this conversation. If no author or brand name was provided, do not invent one and do not leave a placeholder.
+
+The finished notice must:
+- Clearly state that the report is protected and provided for the purchaser's or authorized recipient's personal use only
+- Prohibit unauthorized copying, reproducing, sharing, uploading, reselling, sublicensing, republishing, modifying, translating, distributing, or transmitting the report in whole or in part
+- State that no ownership, resale, PLR, master resale, redistribution, or reproduction rights are granted unless separately provided in writing by the rights holder
+- Explain that the information is educational and informational and is not legal, financial, medical, tax, or other professional advice
+- State that results are not guaranteed and depend on the reader's circumstances, decisions, effort, and implementation
+- Explain that information, marketing, platforms, prices, rules, links, procedures, recommendations, and market conditions can change, become outdated, or no longer apply
+- Tell readers to verify important or time-sensitive information before acting
+- State that the author or publisher may revise, update, replace, or discontinue the report without notice and is not obligated to provide updates
+- Limit liability for losses, damages, errors, omissions, outdated information, or actions taken based on the report, using clear and reasonable language
+- Avoid exaggerated legal threats, fake legal citations, unsupported claims, and language that promises complete legal protection
+
+Formatting rules:
+- Use a strong heading such as Copyright, Disclaimer & Change Notice
+- Write concise, professional paragraphs suitable for the first page of a premium PDF report
+- Do not include a year or date anywhere
+- Do not use placeholders
+- Do not mention these instructions or explain your process
+- Return only the finished notice, ready to paste into the report
+
+Return only the requested finished output. Do not preface it with commentary, summarize your process, explain your choices, mention the workflow, or add notes after it.</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p1', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Prompt #2 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #2: The Opening</span>
+        </div>
+        <div class="prompt-content" id="p2">Answer the following prompt in Bengali (India).
+
+Rules:
+- Use only Bengali (India).
+- Always address the reader as "আপনি".
+- Never use "তুমি" or "তুই".
+- Use a natural Kolkata-style conversational tone.
+- Use natural, modern Bengali (India).
+- Avoid Bangladeshi vocabulary, spelling, and expressions.
+
+PROMPT
+
+We are now writing the finished report part by part in this same chat.
+
+Write the finished opening for the report now. Follow the opening part of the complete final outline and turn it into polished reader-facing content.
+
+Opening purpose:
+- Begin with the reader's real situation, frustration, risk, confusion, or desired result
+- Help the reader quickly understand why the problem happens and why common attempts often fail
+- Establish what they'll understand, avoid, or be able to do differently after reading the report
+- Create curiosity through useful insight and specificity, not hype
+- Move naturally into the solution the rest of the report will deliver
+
+Important rules:
+- Write only the finished opening
+- Use only the natural reader-facing title assigned to the opening in the complete final outline
+- Do not use the labels Opening, Opening Section, Introduction, or Section unless one of those words is genuinely part of the approved reader-facing title
+- Minimum 500 words
+- Do not begin with a cliché, dictionary definition, broad history lesson, or phrases such as "In today's fast-paced world"
+- Do not include prompts, worksheets, template language, creator notes, or process commentary
+
+Write with the depth of a skilled practitioner who understands this topic beyond surface-level advice. Adapt the expertise to the report's actual niche, audience, and subject instead of forcing business, marketing, technical, medical, or other specialized language where it doesn't belong.
+
+Surface valuable information that beginners commonly miss, experienced people usually learn through practice, or basic content leaves unexplained. Include useful distinctions, overlooked details, practical reasoning, expert shortcuts, common mistakes, decision-making guidance, and specific examples whenever they genuinely improve understanding.
+
+Explain not only what to do, but why it works, when it applies, how to adapt it, what can go wrong, and how the reader can recognize whether they're doing it correctly. Every major paragraph should teach, clarify, demonstrate, warn, or help the reader make a better decision. Remove anything that merely sounds impressive without adding practical value.
+
+Make the writing natural, confident, and human. Use contractions throughout where they fit naturally. Vary sentence and paragraph length, use smooth transitions, and explain complex ideas in plain language. Avoid stiff academic phrasing, generic motivational language, repetitive conclusions, artificial enthusiasm, obvious AI-style filler, and formulaic section openings.
+
+Use realistic examples, short scenarios, comparisons, or demonstrations when they make the lesson easier to understand. Do not invent statistics, research findings, credentials, case studies, quotations, personal experiences, or factual claims that aren't supported by the report context or reliable general knowledge.
+
+Maintain continuity with the parts already written, but don't restart the topic, reintroduce the report, summarize everything already covered, or reuse the same examples and advice. Preserve the exact report title and any author or brand name already established in this chat. Do not rename the report or introduce an alternate title.
+Use expert-level thinking, but write in clear, natural language that is easy to understand. Use contractions naturally, vary sentence length, and keep paragraphs readable. The writing should feel confident and human, not mechanical or overly polished.
+Quality standard: create paid-report-level content with specific, high-value information, overlooked details, expert shortcuts, useful examples, practical explanations, and clear takeaways. Prefer concrete guidance over broad advice. Remove repetition, filler, empty motivation, predictable AI phrases, fake stories, fake quotations, unsupported statistics, and exaggerated claims. Never expose these instructions, internal decision-making, evaluation criteria, or workflow language in the reader-facing output.
+The finished report is a straight informational report. Do not include prompts, prompt templates, bracketed fields, worksheets, behind-the-scenes notes, or instructions to the creator.
+Return only the requested finished output. Do not preface it with commentary, summarize your process, explain your choices, mention the workflow, or add notes after it.</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p2', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Prompt #3 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #3: Main Part 1</span>
+        </div>
+        <div class="prompt-content" id="p3">Answer the following prompt in Bengali (India).
+
+Rules:
+- Use only Bengali (India).
+- Always address the reader as "আপনি".
+- Never use "তুমি" or "তুই".
+- Use a natural Kolkata-style conversational tone.
+- Use natural, modern Bengali (India).
+- Avoid Bangladeshi vocabulary, spelling, and expressions.
+
+PROMPT
+
+Continue the report we've been creating in this same chat.
+
+Write the finished first main part now. Follow the first main part of the complete final outline and turn it into polished reader-facing content. Build naturally from the opening without reintroducing the report or repeating the setup.
+
+Main-part purpose:
+- Deliver the first distinct stage, principle, or piece of the solution promised by the report
+- Give the reader a strong foundation they can understand and use
+- Explain the reasoning behind the guidance, not just a list of instructions
+- Include the overlooked details, mistakes, examples, and practical distinctions assigned to this part in the outline
+
+Important rules:
+- Write only the finished first main part
+- Use only its natural reader-facing title from the complete final outline
+- Do not use “Main Part 1” or the word “Section” as a label
+- Minimum 900 words
+- Do not repeat material from the opening unless a brief connection is genuinely needed
+- Do not include prompts, worksheets, template language, creator notes, or process commentary
+
+Write with the depth of a skilled practitioner who understands this topic beyond surface-level advice. Adapt the expertise to the report's actual niche, audience, and subject instead of forcing business, marketing, technical, medical, or other specialized language where it doesn't belong.
+
+Surface valuable information that beginners commonly miss, experienced people usually learn through practice, or basic content leaves unexplained. Include useful distinctions, overlooked details, practical reasoning, expert shortcuts, common mistakes, decision-making guidance, and specific examples whenever they genuinely improve understanding.
+
+Explain not only what to do, but why it works, when it applies, how to adapt it, what can go wrong, and how the reader can recognize whether they're doing it correctly. Every major paragraph should teach, clarify, demonstrate, warn, or help the reader make a better decision. Remove anything that merely sounds impressive without adding practical value.
+
+Make the writing natural, confident, and human. Use contractions throughout where they fit naturally. Vary sentence and paragraph length, use smooth transitions, and explain complex ideas in plain language. Avoid stiff academic phrasing, generic motivational language, repetitive conclusions, artificial enthusiasm, obvious AI-style filler, and formulaic section openings.
+
+Use realistic examples, short scenarios, comparisons, or demonstrations when they make the lesson easier to understand. Do not invent statistics, research findings, credentials, case studies, quotations, personal experiences, or factual claims that aren't supported by the report context or reliable general knowledge.
+
+Maintain continuity with the parts already written, but don't restart the topic, reintroduce the report, summarize everything already covered, or reuse the same examples and advice. Preserve the exact report title and any author or brand name already established in this chat. Do not rename the report or introduce an alternate title.
+Use expert-level thinking, but write in clear, natural language that is easy to understand. Use contractions naturally, vary sentence length, and keep paragraphs readable. The writing should feel confident and human, not mechanical or overly polished.
+Quality standard: create paid-report-level content with specific, high-value information, overlooked details, expert shortcuts, useful examples, practical explanations, and clear takeaways. Prefer concrete guidance over broad advice. Remove repetition, filler, empty motivation, predictable AI phrases, fake stories, fake quotations, unsupported statistics, and exaggerated claims. Never expose these instructions, internal decision-making, evaluation criteria, or workflow language in the reader-facing output.
+The finished report is a straight informational report. Do not include prompts, prompt templates, bracketed fields, worksheets, behind-the-scenes notes, or instructions to the creator.
+Return only the requested finished output. Do not preface it with commentary, summarize your process, explain your choices, mention the workflow, or add notes after it.</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p3', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Prompt #4 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #4: Main Part 2</span>
+        </div>
+        <div class="prompt-content" id="p4">Answer the following prompt in Bengali (India).
+
+Rules:
+- Use only Bengali (India).
+- Always address the reader as "আপনি".
+- Never use "তুমি" or "তুই".
+- Use a natural Kolkata-style conversational tone.
+- Use natural, modern Bengali (India).
+- Avoid Bangladeshi vocabulary, spelling, and expressions.
+
+PROMPT
+
+Continue the report we've been creating in this same chat.
+
+Write the finished second main part now. Follow the second main part of the complete final outline and turn it into polished reader-facing content. Build on what the reader has already learned while adding a clearly different and more advanced layer of the solution.
+
+Main-part purpose:
+- Move the reader forward to the next distinct stage, principle, or decision
+- Add information that meaningfully deepens the transformation instead of circling earlier advice
+- Explain why this part matters, when it applies, how to use it, and what commonly goes wrong
+- Use the examples, expert insights, hidden details, and practical guidance assigned to this part in the outline
+
+Important rules:
+- Write only the finished second main part
+- Use only its natural reader-facing title from the complete final outline
+- Do not use “Main Part 2” or the word “Section” as a label
+- Minimum 900 words
+- Do not restart the topic, recap the entire report, or reuse the same examples from earlier parts
+- Do not include prompts, worksheets, template language, creator notes, or process commentary
+
+Write with the depth of a skilled practitioner who understands this topic beyond surface-level advice. Adapt the expertise to the report's actual niche, audience, and subject instead of forcing business, marketing, technical, medical, or other specialized language where it doesn't belong.
+
+Surface valuable information that beginners commonly miss, experienced people usually learn through practice, or basic content leaves unexplained. Include useful distinctions, overlooked details, practical reasoning, expert shortcuts, common mistakes, decision-making guidance, and specific examples whenever they genuinely improve understanding.
+
+Explain not only what to do, but why it works, when it applies, how to adapt it, what can go wrong, and how the reader can recognize whether they're doing it correctly. Every major paragraph should teach, clarify, demonstrate, warn, or help the reader make a better decision. Remove anything that merely sounds impressive without adding practical value.
+
+Make the writing natural, confident, and human. Use contractions throughout where they fit naturally. Vary sentence and paragraph length, use smooth transitions, and explain complex ideas in plain language. Avoid stiff academic phrasing, generic motivational language, repetitive conclusions, artificial enthusiasm, obvious AI-style filler, and formulaic section openings.
+
+Use realistic examples, short scenarios, comparisons, or demonstrations when they make the lesson easier to understand. Do not invent statistics, research findings, credentials, case studies, quotations, personal experiences, or factual claims that aren't supported by the report context or reliable general knowledge.
+
+Maintain continuity with the parts already written, but don't restart the topic, reintroduce the report, summarize everything already covered, or reuse the same examples and advice. Preserve the exact report title and any author or brand name already established in this chat. Do not rename the report or introduce an alternate title.
+Use expert-level thinking, but write in clear, natural language that is easy to understand. Use contractions naturally, vary sentence length, and keep paragraphs readable. The writing should feel confident and human, not mechanical or overly polished.
+Quality standard: create paid-report-level content with specific, high-value information, overlooked details, expert shortcuts, useful examples, practical explanations, and clear takeaways. Prefer concrete guidance over broad advice. Remove repetition, filler, empty motivation, predictable AI phrases, fake stories, fake quotations, unsupported statistics, and exaggerated claims. Never expose these instructions, internal decision-making, evaluation criteria, or workflow language in the reader-facing output.
+The finished report is a straight informational report. Do not include prompts, prompt templates, bracketed fields, worksheets, behind-the-scenes notes, or instructions to the creator.
+Return only the requested finished output. Do not preface it with commentary, summarize your process, explain your choices, mention the workflow, or add notes after it.</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p4', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Prompt #5 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #5: Main Part 3</span>
+        </div>
+        <div class="prompt-content" id="p5">Answer the following prompt in Bengali (India).
+
+Rules:
+- Use only Bengali (India).
+- Always address the reader as "আপনি".
+- Never use "তুমি" or "তুই".
+- Use a natural Kolkata-style conversational tone.
+- Use natural, modern Bengali (India).
+- Avoid Bangladeshi vocabulary, spelling, and expressions.
+
+PROMPT
+
+Continue the report we've been creating in this same chat.
+
+Write the finished third main part now. Follow the third main part of the complete final outline and turn it into polished reader-facing content. This part must complete the report's core solution by helping the reader apply it accurately, adapt it to real situations, avoid failure points, and make the result repeatable or sustainable.
+
+Main-part purpose:
+- Deliver the final essential stage, method, skill, or decision needed to fulfill the product promise
+- Surface useful nuances, edge cases, misconceptions, and expert-level distinctions that basic content often misses
+- Address likely obstacles, mistakes, or situations that could prevent the reader from getting the result
+- Show how to adapt the solution when circumstances differ and how to recognize correct progress or application
+- Close the gap between understanding the solution and using it successfully
+
+Important rules:
+- Write only the finished third main part
+- Use only its natural reader-facing title from the complete final outline
+- Do not use “Main Part 3” or the word “Section” as a label
+- Minimum 900 words
+- Complete the core teaching without turning this part into the closing
+- Make sure it contributes something meaningfully new and doesn't repeat the first two main parts
+- Avoid generic advice, filler, a checklist-only structure, or a premature summary
+- Do not include prompts, worksheets, template language, creator notes, or process commentary
+
+Write with the depth of a skilled practitioner who understands this topic beyond surface-level advice. Adapt the expertise to the report's actual niche, audience, and subject instead of forcing business, marketing, technical, medical, or other specialized language where it doesn't belong.
+
+Surface valuable information that beginners commonly miss, experienced people usually learn through practice, or basic content leaves unexplained. Include useful distinctions, overlooked details, practical reasoning, expert shortcuts, common mistakes, decision-making guidance, and specific examples whenever they genuinely improve understanding.
+
+Explain not only what to do, but why it works, when it applies, how to adapt it, what can go wrong, and how the reader can recognize whether they're doing it correctly. Every major paragraph should teach, clarify, demonstrate, warn, or help the reader make a better decision. Remove anything that merely sounds impressive without adding practical value.
+
+Make the writing natural, confident, and human. Use contractions throughout where they fit naturally. Vary sentence and paragraph length, use smooth transitions, and explain complex ideas in plain language. Avoid stiff academic phrasing, generic motivational language, repetitive conclusions, artificial enthusiasm, obvious AI-style filler, and formulaic section openings.
+
+Use realistic examples, short scenarios, comparisons, or demonstrations when they make the lesson easier to understand. Do not invent statistics, research findings, credentials, case studies, quotations, personal experiences, or factual claims that aren't supported by the report context or reliable general knowledge.
+
+Maintain continuity with the parts already written, but don't restart the topic, reintroduce the report, summarize everything already covered, or reuse the same examples and advice. Preserve the exact report title and any author or brand name already established in this chat. Do not rename the report or introduce an alternate title.
+Use expert-level thinking, but write in clear, natural language that is easy to understand. Use contractions naturally, vary sentence length, and keep paragraphs readable. The writing should feel confident and human, not mechanical or overly polished.
+Quality standard: create paid-report-level content with specific, high-value information, overlooked details, expert shortcuts, useful examples, practical explanations, and clear takeaways. Prefer concrete guidance over broad advice. Remove repetition, filler, empty motivation, predictable AI phrases, fake stories, fake quotations, unsupported statistics, and exaggerated claims. Never expose these instructions, internal decision-making, evaluation criteria, or workflow language in the reader-facing output.
+The finished report is a straight informational report. Do not include prompts, prompt templates, bracketed fields, worksheets, behind-the-scenes notes, or instructions to the creator.
+Return only the requested finished output. Do not preface it with commentary, summarize your process, explain your choices, mention the workflow, or add notes after it.</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p5', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Prompt #6 -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Prompt #6: The Closing</span>
+        </div>
+        <div class="prompt-content" id="p6">Answer the following prompt in Bengali (India).
+
+Rules:
+- Use only Bengali (India).
+- Always address the reader as "আপনি".
+- Never use "তুমি" or "তুই".
+- Use a natural Kolkata-style conversational tone.
+- Use natural, modern Bengali (India).
+- Avoid Bangladeshi vocabulary, spelling, and expressions.
+
+PROMPT
+
+Continue the report we've been creating in this same chat.
+
+Write the finished closing now. Follow the closing part of the complete final outline and bring the report to a useful, satisfying conclusion.
+
+Closing purpose:
+- Reinforce the most important shift in the reader's understanding without repeating every earlier point
+- Connect the opening and three main parts into one clear path forward
+- Help the reader see what matters most when applying the solution
+- Give the reader one realistic next action, decision, or perspective to carry forward
+- End with clarity and momentum rather than hype or a generic inspirational speech
+
+Important rules:
+- Write only the finished closing
+- Use only the natural reader-facing title assigned to the closing in the complete final outline
+- Do not use the labels Closing, Closing Section, Conclusion, or Section unless one of those words is genuinely part of the approved reader-facing title
+- Minimum 500 words
+- Do not summarize the report part by part
+- Do not introduce a major new topic that should have appeared earlier
+- Do not include prompts, worksheets, template language, creator notes, or process commentary
+
+Write with the depth of a skilled practitioner who understands this topic beyond surface-level advice. Adapt the expertise to the report's actual niche, audience, and subject instead of forcing business, marketing, technical, medical, or other specialized language where it doesn't belong.
+
+Surface valuable information that beginners commonly miss, experienced people usually learn through practice, or basic content leaves unexplained. Include useful distinctions, overlooked details, practical reasoning, expert shortcuts, common mistakes, decision-making guidance, and specific examples whenever they genuinely improve understanding.
+
+Explain not only what to do, but why it works, when it applies, how to adapt it, what can go wrong, and how the reader can recognize whether they're doing it correctly. Every major paragraph should teach, clarify, demonstrate, warn, or help the reader make a better decision. Remove anything that merely sounds impressive without adding practical value.
+
+Make the writing natural, confident, and human. Use contractions throughout where they fit naturally. Vary sentence and paragraph length, use smooth transitions, and explain complex ideas in plain language. Avoid stiff academic phrasing, generic motivational language, repetitive conclusions, artificial enthusiasm, obvious AI-style filler, and formulaic section openings.
+
+Use realistic examples, short scenarios, comparisons, or demonstrations when they make the lesson easier to understand. Do not invent statistics, research findings, credentials, case studies, quotations, personal experiences, or factual claims that aren't supported by the report context or reliable general knowledge.
+
+Maintain continuity with the parts already written, but don't restart the topic, reintroduce the report, summarize everything already covered, or reuse the same examples and advice. Preserve the exact report title and any author or brand name already established in this chat. Do not rename the report or introduce an alternate title.
+Use expert-level thinking, but write in clear, natural language that is easy to understand. Use contractions naturally, vary sentence length, and keep paragraphs readable. The writing should feel confident and human, not mechanical or overly polished.
+Quality standard: create paid-report-level content with specific, high-value information, overlooked details, expert shortcuts, useful examples, practical explanations, and clear takeaways. Prefer concrete guidance over broad advice. Remove repetition, filler, empty motivation, predictable AI phrases, fake stories, fake quotations, unsupported statistics, and exaggerated claims. Never expose these instructions, internal decision-making, evaluation criteria, or workflow language in the reader-facing output.
+The finished report is a straight informational report. Do not include prompts, prompt templates, bracketed fields, worksheets, behind-the-scenes notes, or instructions to the creator.
+Return only the requested finished output. Do not preface it with commentary, summarize your process, explain your choices, mention the workflow, or add notes after it.</div>
+        <div class="button-group">
+          <button class="btn copy-btn" onclick="copyText('p6', this)">
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Siva Prasad Mukherjee. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    function copyText(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<span>Copied to Clipboard!</span>`;
+        btn.classList.add('copied');
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

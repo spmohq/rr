@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create The Complete Report Outline - Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient-start: #020617;
+      --bg-gradient-end: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.4);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-primary: #22d3ee;
+      --accent-hover: #67e8f9;
+      --accent-success: #10b981;
+      --accent-danger: #f43f5e;
+      --code-bg: rgba(0, 0, 0, 0.3);
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: fixed linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .prompt-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .step-label {
+      font-weight: 800;
+      font-size: 0.8rem;
+      background: var(--accent-primary);
+      color: #020617;
+      padding: 5px 16px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .clear-btn {
+      background: transparent;
+      border: 1px solid var(--accent-danger);
+      color: var(--accent-danger);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .clear-btn:hover {
+      background: var(--accent-danger);
+      color: white;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .field-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+    }
+
+    .dynamic-textarea {
+      width: 100%;
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 15px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      min-height: 80px;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .dynamic-textarea:focus {
+      border-color: var(--accent-primary);
+    }
+
+    .prompt-content {
+      background: var(--code-bg);
+      padding: 30px;
+      border-radius: 12px;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 25px;
+      line-height: 1.5;
+      word-break: break-word;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    /* Scrollbar Styling */
+    .prompt-content::-webkit-scrollbar {
+      width: 8px;
+    }
+    .prompt-content::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+    .prompt-content::-webkit-scrollbar-thumb {
+      background: var(--card-border);
+      border-radius: 10px;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      width: 100%;
+      text-decoration: none;
+      border: none;
+    }
+
+    .copy-btn {
+      background: rgba(34, 211, 238, 0.1);
+      color: var(--accent-primary);
+      border: 1px solid var(--accent-primary);
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-primary);
+      color: #020617;
+    }
+
+    .copy-btn.copied {
+      background: var(--accent-success);
+      border-color: var(--accent-success);
+      color: white;
+    }
+
+    .footer {
+      margin-top: 80px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 40px;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      .step-card { padding: 25px; }
+      .prompt-content { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Create The Complete Report Outline</h1>
+    </header>
+
+    <div class="prompt-workflow">
+      
+      <!-- Input Card -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Data Entry</span>
+          <button class="clear-btn" onclick="clearAll()">Clear All</button>
+        </div>
+        <div class="input-group">
+          <div class="field-wrapper">
+            <label>[AUTHOR]</label>
+            <textarea id="in_author" class="dynamic-textarea" placeholder="Enter Author or Brand Name..." oninput="updatePrompt()"></textarea>
+          </div>
+          <div class="field-wrapper">
+            <label>[FINAL REPORT TITLE]</label>
+            <textarea id="in_title" class="dynamic-textarea" placeholder="Enter Official Report Title..." oninput="updatePrompt()"></textarea>
+          </div>
+          <div class="field-wrapper">
+            <label>[REPORT IDEA]</label>
+            <textarea id="in_idea" class="dynamic-textarea" placeholder="Paste your Report Idea/Direction here..." oninput="updatePrompt()"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generated Prompt Card -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Master Prompt</span>
+        </div>
+        <div class="prompt-content" id="p1"></div>
+        <button class="btn copy-btn" onclick="copyText('p1', this)">
+          <span>Copy Full Prompt</span>
+        </button>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Siva Prasad Mukherjee. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const template = `Answer the following prompt in Bengali (India).
+
+Rules:
+- Use only Bengali (India).
+- Always address the reader as "আপনি".
+- Never use "তুমি" or "তুই".
+- Use a natural Kolkata-style conversational tone.
+- Use natural, modern Bengali (India).
+- Avoid Bangladeshi vocabulary, spelling, and expressions.
+
+PROMPT
+
+You're an expert PDF report creator, instructional product designer, information strategist, developmental editor, and subject-matter synthesizer.
+
+The author or brand name is: [AUTHOR]. Use this name naturally when branding the report and creating launch assets. Include it on the ecover and promotional images where an author or brand name belongs. Don't force it into the main report title unless it fits naturally.
+
+Continue working in this same chat.
+
+FINAL REPORT TITLE:
+[FINAL REPORT TITLE]
+
+The title above is the permanent official title for the outline, finished report, ecover, and every promotional asset created later in this chat. Preserve it exactly.
+
+PASTE-READY REPORT DIRECTION:
+[REPORT IDEA]
+
+Treat the pasted direction as the source of truth for the Buyer Problem, Intended Reader, Must-Have Hook, Promised Result, Simple Mechanism, Why This Feels Different, What The Report Must Cover, and Keep It Focused boundary.
+
+Create the complete final report outline now. There will not be another outline-strengthening step.
+
+CORE LOGIC:
+Build a focused five-part report that moves the intended reader from the exact problem to the promised result through the stated mechanism. Preserve the hook and distinctive angle. Cover the essential material and stay inside the stated boundaries.
+
+Do not broaden the subject, introduce a second core problem, change the intended reader, dilute the hook, or turn the report into a general overview.
+
+The outline must contain exactly these 5 parts:
+
+1. Opening
+2. Main Part 1
+3. Main Part 2
+4. Main Part 3
+5. Closing
+
+Give each part a natural reader-facing title. Do not use Opening, Main Part, Closing, Conclusion, or Section as the finished reader-facing title unless the word is naturally necessary.
+
+DEFAULT PROGRESSION:
+- Opening: make the reader recognize the problem, understand why it happens, and see the useful result ahead
+- Main Part 1: create clarity, diagnose the issue, or establish the first essential decision or foundation
+- Main Part 2: teach the core mechanism, process, sequence, or action that produces the result
+- Main Part 3: help the reader apply it well, avoid mistakes, adapt it, troubleshoot problems, and make the result repeatable
+- Closing: connect the solution, reinforce the key shift, and give one realistic next action
+
+Use an equivalent progression when the topic requires it. The 3 main parts must remain distinct, necessary, progressive, and non-overlapping.
+
+For each of the 5 parts, include only:
+- **Reader-Facing Title**
+- **Purpose**
+- **Key Points To Cover**
+- **Expert Value To Include**
+- **Useful Example Or Demonstration**
+- **Practical Reader Takeaway**
+- **Natural Transition**
+
+OUTLINE DEPTH:
+- Give enough specific direction for the later writing prompts to produce expert-level content without guessing
+- Keep the outline concise and usable rather than turning it into a rough draft
+- Each main part should contain 5 to 8 strong key points, not long explanatory paragraphs
+- Place overlooked details, expert distinctions, mistakes, and examples where they naturally belong
+- Ensure the opening can support at least 500 useful words, each main part at least 900 useful words, and the closing at least 500 useful words
+
+EXPERT QUALITY:
+- Surface useful information beginners commonly miss or basic content leaves unexplained
+- Include practical reasoning, distinctions, decision guidance, realistic examples, and failure points where they improve the result
+- Adapt the expertise and terminology to the actual niche
+- Prefer concrete guidance over filler, obvious observations, or artificial complexity
+- Do not invent statistics, research, case studies, credentials, quotations, laws, guarantees, or unsupported factual claims
+
+Do not add bonuses, appendices, worksheets, launch assets, or extra report parts.
+
+The finished report is a straight informational report. Do not include prompts, prompt templates, bracketed fields, worksheets, behind-the-scenes notes, or instructions to the creator.
+Use expert-level thinking, but write in clear, natural language that is easy to understand. Use contractions naturally, vary sentence length, and keep paragraphs readable. The writing should feel confident and human, not mechanical or overly polished.
+Quality standard: create paid-report-level content with specific, high-value information, overlooked details, expert shortcuts, useful examples, practical explanations, and clear takeaways. Prefer concrete guidance over broad advice. Remove repetition, filler, empty motivation, predictable AI phrases, fake stories, fake quotations, unsupported statistics, and exaggerated claims. Never expose these instructions, internal decision-making, evaluation criteria, or workflow language in the reader-facing output.
+
+FINAL CHECK:
+- Preserve the official title exactly
+- Return exactly 5 report parts
+- Make all 3 main parts distinct and progressive
+- Cover everything essential from the pasted direction
+- Stay inside the focus boundary
+- Give the closing one realistic next action
+- Silently improve anything generic, repetitive, weak, or unclear
+
+Return only the requested finished output. Do not preface it with commentary, summarize your process, explain your choices, mention the workflow, or add notes after it.
+
+Return only the complete final report outline.`;
+
+    function updatePrompt() {
+      const author = document.getElementById('in_author').value.trim() || "[AUTHOR]";
+      const title = document.getElementById('in_title').value.trim() || "[FINAL REPORT TITLE]";
+      const idea = document.getElementById('in_idea').value.trim() || "[REPORT IDEA]";
+
+      let result = template;
+      result = result.split("[AUTHOR]").join(author);
+      result = result.split("[FINAL REPORT TITLE]").join(title);
+      result = result.split("[REPORT IDEA]").join(idea);
+
+      document.getElementById('p1').innerText = result;
+    }
+
+    function clearAll() {
+      document.getElementById('in_author').value = "";
+      document.getElementById('in_title').value = "";
+      document.getElementById('in_idea').value = "";
+      updatePrompt();
+    }
+
+    function copyText(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<span>Copied to Clipboard!</span>`;
+        btn.classList.add('copied');
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Initialize display on load
+    window.onload = updatePrompt;
+  </script>
+</body>
+</html>

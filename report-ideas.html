@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generate 3 Winning Report Ideas - Prompt Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient-start: #020617;
+      --bg-gradient-end: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.4);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-primary: #22d3ee;
+      --accent-hover: #67e8f9;
+      --accent-success: #10b981;
+      --accent-danger: #f43f5e;
+      --code-bg: rgba(0, 0, 0, 0.3);
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: fixed linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    /* Navigation Row */
+    .nav-row {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--accent-primary);
+      border: 1px solid var(--accent-primary);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover {
+      background: var(--accent-primary);
+      color: #020617;
+      transform: translateY(-2px);
+    }
+
+    .prompt-workflow {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .step-label {
+      font-weight: 800;
+      font-size: 0.8rem;
+      background: var(--accent-primary);
+      color: #020617;
+      padding: 5px 16px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .clear-btn {
+      background: transparent;
+      border: 1px solid var(--accent-danger);
+      color: var(--accent-danger);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .clear-btn:hover {
+      background: var(--accent-danger);
+      color: white;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .field-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+    }
+
+    .dynamic-input {
+      width: 100%;
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 15px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .dynamic-input:focus {
+      border-color: var(--accent-primary);
+    }
+
+    .prompt-content {
+      background: var(--code-bg);
+      padding: 30px;
+      border-radius: 12px;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 25px;
+      line-height: 1.5;
+      word-break: break-word;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    /* Scrollbar for prompt box */
+    .prompt-content::-webkit-scrollbar { width: 8px; }
+    .prompt-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+    .prompt-content::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 4px; }
+
+    .btn {
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      width: 100%;
+      text-decoration: none;
+      border: none;
+    }
+
+    .copy-btn {
+      background: rgba(34, 211, 238, 0.1);
+      color: var(--accent-primary);
+      border: 1px solid var(--accent-primary);
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-primary);
+      color: #020617;
+    }
+
+    .copy-btn.copied {
+      background: var(--accent-success);
+      border-color: var(--accent-success);
+      color: white;
+    }
+
+    .footer {
+      margin-top: 80px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 40px;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      .step-card { padding: 25px; }
+      .nav-row { flex-direction: column; align-items: stretch; }
+      .nav-btn { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Generate 3 Winning Report Ideas</h1>
+    </header>
+
+    <div class="nav-row">
+      <a href="https://spmohq.github.io/atmn/report-outline.html" target="_blank" class="nav-btn">Report Outline</a>
+      <a href="https://spmohq.github.io/atmn/main-report.html" target="_blank" class="nav-btn">Main Report</a>
+      <a href="https://spmohq.github.io/atmn/report-assets.html" target="_blank" class="nav-btn">Report Assets</a>
+    </div>
+
+    <div class="prompt-workflow">
+      
+      <!-- Input Card -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Data Input</span>
+          <button class="clear-btn" onclick="clearInputs()">Clear All</button>
+        </div>
+        <div class="input-group">
+          <div class="field-wrapper">
+            <label>SOURCE TYPE / URL</label>
+            <input type="text" id="urlInput" class="dynamic-input" placeholder="Enter URL or Source Type..." oninput="updatePrompt()">
+          </div>
+          <div class="field-wrapper">
+            <label>AUTHOR / BRAND</label>
+            <input type="text" id="authorInput" class="dynamic-input" placeholder="Enter Author or Brand Name..." oninput="updatePrompt()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-label">Generated Prompt</span>
+        </div>
+        <div class="prompt-content" id="p1"></div>
+        <button class="btn copy-btn" onclick="copyText('p1', this)">
+          <span>Copy Full Prompt</span>
+        </button>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Siva Prasad Mukherjee. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const promptTemplate = `Answer the following prompt in Bengali (India).
+
+Rules:
+- Use only Bengali (India).
+- Always address the reader as "আপনি".
+- Never use "তুমি" or "তুই".
+- Use a natural Kolkata-style conversational tone.
+- Use natural, modern Bengali (India).
+- Avoid Bangladeshi vocabulary, spelling, and expressions.
+
+PROMPT
+
+You're an expert digital product strategist, direct-response product creator, buyer psychology analyst, product naming specialist, and PDF report creator.
+
+I want to create a sellable PDF report using the Radical Reports system.
+
+SOURCE TYPE: [URL]
+
+Use this URL as the primary source. Analyze the page's topic, offer, audience, problems, benefits, and related opportunities. Create report ideas that are directly connected to or naturally useful alongside what is on the page. If you can't access the URL, tell me to paste the page content into this same chat, then continue from that content without changing the requested output format.
+
+The author or brand name is: [AUTHOR]. Use this name naturally when branding the report and creating launch assets. Include it on the ecover and promotional images where an author or brand name belongs. Don't force it into the main report title unless it fits naturally.
+
+Generate exactly 3 fresh, sales-page-ready, one-problem, one-solution PDF report ideas.
+
+UNIVERSAL SOURCE INTERPRETATION:
+Before generating ideas, silently determine whether the source is a category, keyword, topic, niche, audience, product, article, offer, or URL.
+
+Then identify the strongest commercially useful interpretation:
+- CATEGORY: Produce a specific result people already want inside that category.
+- KEYWORD OR TOPIC: Find the most recognizable pain, obstacle, mistake, missed opportunity, or quick win connected to it.
+- NICHE OR AUDIENCE: Derive urgent recurring problems that group already wants solved.
+- PRODUCT OR OFFER: Find a focused companion problem, missing step, shortcut, protection, or next result that can stand alone as a PDF.
+- ARTICLE: Use its topic as context, then create a sharper one-problem product rather than summarizing it.
+- URL: Analyze the page's topic, audience, promise, problem, and related opportunities. Do not copy, rewrite, or merely summarize the page.
+
+Do not force the literal source wording into every sentence, but every final idea must remain unmistakably anchored to the user's exact topic, keyword, niche, market, audience, product, offer, article, category, or URL. Choose the interpretation with the clearest pain, strongest desire, simplest mechanism, and best sales-page hook.
+
+TOPIC AND MARKET ANCHORING:
+The ideas must work universally in any niche or market while still making the original source obvious.
+
+For every idea:
+- Preserve the user's exact keyword, topic, niche, market, or audience wording when it is clear and natural
+- When the input is a URL, identify and name the page's main topic, market, audience, or promised result
+- When the input is broad, state the specific subtopic or buyer result selected for that idea
+- Never return a generic idea that could be pasted under dozens of unrelated sources without meaningful changes
+- Make each idea visibly belong to the chosen market, even when the underlying mechanism could also work elsewhere
+- Distinguish overlapping concepts by changing the buyer moment, mechanism, result, and topic-specific framing
+
+At least 3 of the 5 title options for each idea must include either the exact source keyword or a clear niche-specific word that immediately identifies the topic or market. Do not awkwardly force the same word into all 5 titles.
+
+CATEGORY AND OUTCOME FIDELITY:
+Every idea must directly help create the main result implied by the source.
+
+Examples:
+- Free Traffic must generate, attract, uncover, or multiply free visitors. Do not substitute engagement, timing, analytics, or click repair unless the direct result is new free traffic.
+- Email Marketing must help build, activate, monetize, or improve an email list.
+- Dog Training must change one recognizable behavior.
+- Productivity must help begin, complete, organize, or simplify one specific task.
+
+Silently reject any idea that only improves a supporting metric while failing to deliver the source's main desired result.
+
+IDEA FORMULA:
+Build every idea around this sequence:
+
+Pain I recognize + relief I want + simple mechanism + low effort + immediate use + reduced risk
+
+Use this practical promise structure internally:
+
+Get [specific result] without [feared difficulty], using [simple mechanism], even if [identity-based objection].
+
+Do not print that formula. Use it to sharpen the idea.
+
+BUYER APPEAL:
+Write for impulse-driven, low-attention, collection-oriented digital-product buyers who scan quickly, respond emotionally, feel overloaded, and prefer something that looks simple, immediate, and easy to own.
+
+Use clear language at approximately an eighth-to-tenth-grade reading level.
+
+The title and idea must make a scrolling buyer feel:
+- I know this problem
+- I want that result
+- This looks easier than what I've tried
+- I could use this immediately
+- I don't want to miss adding this to my collection
+
+Prioritize immediate clarity, curiosity, desirability, low perceived effort, and a strong ownership impulse.
+
+Do not depend on layered reasoning, technical knowledge, patience, long explanations, or careful comparison.
+
+ONE-PROBLEM, ONE-SOLUTION STANDARD:
+Each idea must contain:
+- One recognizable painful moment
+- One visible symptom, mistake, obstacle, or missed opportunity
+- One simple mechanism
+- One specific result
+- One strong sales-page hook
+
+Each idea must fit naturally into this report structure:
+- Opening
+- Main Section 1
+- Main Section 2
+- Main Section 3
+- Closing
+
+Do not create broad guides, miniature courses, topic overviews, random tip collections, or products that solve several problems at once.
+
+FRESHNESS REQUIREMENT:
+Silently explore many possible angles before selecting the final 3.
+
+The 3 final ideas must:
+- Solve 3 meaningfully different buyer moments
+- Use 3 different mechanisms
+- Promise 3 visibly different outcomes
+- Stand alone as separate products
+- Avoid the same tired angles commonly produced for this source
+- Feel specific enough to sell, but broad enough to support an opening, 3 main sections, and a closing
+
+Favor ideas built around:
+- A hidden source or overlooked opportunity
+- A shortcut to a wanted result
+- A small mistake blocking a bigger payoff
+- A quick rescue or recovery
+- A protection from a feared loss
+- A copy-and-paste sequence
+- A simple filter, test, scorecard, template, swipe, routine, or discovery process
+- A fast way to use something the buyer already has
+
+TITLE REQUIREMENTS:
+For each idea, provide exactly 5 final report title options for the same report concept.
+
+All 5 titles must:
+- Be 4 words maximum
+- Never begin with The
+- Be easy to say, remember, and place on a 3D ecover
+- Feel catchy, desirable, collectible, curiosity-rich, and sales-page ready
+- Clearly belong to the user's topic, keyword, niche, or market rather than sounding generic
+- Suggest a shortcut, discovery, hidden advantage, quick win, protection, recovery, or desirable result
+- Create enough mystery to hook attention while still hinting at the payoff
+- Sound like a paid product, not a blog post, chapter heading, software feature, or generic free guide
+
+Exactly 2 of the 5 titles must use natural alliteration. Do not label which two.
+
+The other 3 must be eye-catching must-have titles with strong rhythm and emotional pull.
+
+Do not use:
+- Titles longer than 4 words
+- Titles beginning with The
+- Full sentences or commands
+- Awkward noun piles
+- Technical jargon
+- Consultant language
+- Abstract internal terms such as Signal, Alignment, Lane, Window, Path, Bridge, Timing, Momentum, Framework, Optimization, Conversion, or Engagement unless instantly clear and unusually strong
+- Tired endings such as Guide, Blueprint, System, Formula, Method, Map, Plan, Strategy, Playbook, Handbook, Toolkit, Manual, Course, Report, or Checklist unless the full title is exceptional
+- Weak problem-only titles such as Leak, Loss, Vanish, Broken, Missed, or Repair without a stronger desirable payoff
+- Names beginning with Turn, Find, Stop, Make, Locate, Learn, Discover, or Recover
+- Forced rhymes, forced alliteration, or random AI-sounding word combinations
+
+Before returning the titles, silently reject any option that does not create a strong ownership impulse when seen beside a cover image and buy button.
+
+YOUR REPORT IDEA:
+Under the 5 title options, provide one complete report direction that the user can copy and paste directly into Step 2's Paste Your Chosen Report Idea box.
+
+It must be clear enough to guide the complete outline, but concise enough to avoid pre-writing the report.
+
+Include exactly these fields:
+
+**Topic or Market:** State the exact topic, keyword, niche, audience, product, offer, or market this report is for. If the source was a URL, state the clearest topic or market identified from the page.
+
+**Painful Moment:** One plain-language sentence describing the frustrating moment the buyer recognizes.
+
+**Exact Problem:** The single obstacle preventing the desired result.
+
+**Intended Reader:** The specific person experiencing this problem and when it matters.
+
+**Must-Have Hook:** One short, high-impact, sales-page-ready line that makes the report feel necessary now.
+
+**Promised Result:** The specific desirable outcome the report helps create.
+
+**Quick Win:** The first visible benefit the reader can get with minimal effort.
+
+**Simple Mechanism:** The one shortcut, source, sequence, template, filter, test, scorecard, swipe, routine, or process used to produce the result.
+
+**Low-Effort Advantage:** Explain why this feels easier, faster, or less intimidating than the usual approach.
+
+**Reduced Risk:** State what feared difficulty, wasted effort, confusion, expense, embarrassment, or common mistake the report helps avoid.
+
+**Why It Sells:** In 1 or 2 short sentences, explain why a scrolling buyer would feel compelled to own it rather than keep scrolling.
+
+**What The Report Must Cover:** One concise list-style sentence containing only the essential steps, examples, mistakes, and decisions needed to deliver the promise across an opening, 3 main sections, and a closing.
+
+**Keep It Focused:** State the related subjects the report must not expand into.
+
+QUALITY CONTROL:
+Before responding, silently verify every idea:
+- Directly delivers the source's main desired outcome
+- Clearly names and reflects the exact topic, keyword, niche, or market
+- Cannot be mistaken for a generic idea from an unrelated market
+- Solves one problem with one solution
+- Has a pain the buyer recognizes immediately
+- Has a simple mechanism understood in seconds
+- Promises a visible result with low perceived effort
+- Has a strong reduced-risk angle
+- Fits the opening, 3 main sections, closing structure
+- Feels fresh rather than recycled
+- Has 5 titles, exactly 2 naturally alliterative, all 4 words maximum
+- Would make an impulse-driven collector pause on a sales page, bonus page, or squeeze page
+
+If any test fails, replace the idea before responding.
+
+Do not invent statistics, studies, testimonials, credentials, income claims, guarantees, scarcity, or unsupported proof.
+Do not explain buyer psychology, show your reasoning, score the ideas, or add commentary outside the required format.
+
+Use expert-level thinking, but write in clear, natural language that is easy to understand. Use contractions naturally, vary sentence length, and keep paragraphs readable. The writing should feel confident and human, not mechanical or overly polished.
+
+Return only the requested finished output. Do not preface it with commentary, summarize your process, explain your choices, mention the workflow, or add notes after it.
+
+Use this exact structure and include nothing else:
+
+## PDF Report Idea #1
+
+### Final report title options:
+1. [Title, 4 words maximum]
+2. [Title, 4 words maximum]
+3. [Title, 4 words maximum]
+4. [Title, 4 words maximum]
+5. [Title, 4 words maximum]
+
+### Your Report Idea:
+
+**Topic or Market:** [Exact topic, keyword, niche, audience, product, offer, or market]
+
+**Painful Moment:** [One recognizable frustrating moment]
+
+**Exact Problem:** [One obstacle blocking the desired result]
+
+**Intended Reader:** [Specific reader and relevant moment]
+
+**Must-Have Hook:** [One short sales-page-ready hook]
+
+**Promised Result:** [Specific desirable outcome]
+
+**Quick Win:** [First visible benefit with minimal effort]
+
+**Simple Mechanism:** [One concrete shortcut, source, sequence, template, filter, test, scorecard, swipe, routine, or process]
+
+**Low-Effort Advantage:** [Why it feels easier or faster]
+
+**Reduced Risk:** [What difficulty, waste, expense, confusion, or mistake it helps avoid]
+
+**Why It Sells:** [Why a scrolling buyer feels compelled to own it]
+
+**What The Report Must Cover:** [Concise essential coverage for opening, 3 main sections, and closing]
+
+**Keep It Focused:** [Related subjects it must not expand into]
+
+Repeat this exact structure for ## PDF Report Idea #2 and ## PDF Report Idea #3.`;
+
+    function updatePrompt() {
+      const url = document.getElementById('urlInput').value.trim() || "[URL]";
+      const author = document.getElementById('authorInput').value.trim() || "[AUTHOR]";
+      
+      let finalPrompt = promptTemplate.replace("[URL]", url);
+      finalPrompt = finalPrompt.replace("[AUTHOR]", author);
+      
+      document.getElementById('p1').innerText = finalPrompt;
+    }
+
+    function clearInputs() {
+      document.getElementById('urlInput').value = "";
+      document.getElementById('authorInput').value = "";
+      updatePrompt();
+    }
+
+    function copyText(id, btn) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<span>Copied to Clipboard!</span>`;
+        btn.classList.add('copied');
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Initialize display on load
+    window.onload = updatePrompt;
+  </script>
+</body>
+</html>
